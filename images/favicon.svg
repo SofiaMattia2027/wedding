@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="68%">
+      <stop offset="0%" stop-color="#965D3C"/>
+      <stop offset="100%" stop-color="#7A4628"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Full bleed Background for iOS / PWA compatibility -->
+  <rect width="512" height="512" fill="url(#bgGrad)"/>
+  
+  <!-- Outer double decorative gold rounded border -->
+  <rect x="24" y="24" width="464" height="464" rx="92" fill="none" stroke="#A87352" stroke-width="2"/>
+  <rect x="36" y="36" width="440" height="440" rx="82" fill="none" stroke="#D8AF79" stroke-width="1.8" opacity="0.85"/>
+
+  <!-- Botanical Wreath from Brand Identity perfectly framing Monogram -->
+  <g transform="translate(256, 216) scale(1.85) translate(-80, -80)" stroke="#D8AF79" fill="#D8AF79">
+    <!-- Vines -->
+    <path d="M78 146C42 142 22 112 22 78c0-30 16-56 46-66" fill="none" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+    <path d="M82 146c36-4 56-34 56-68 0-30-16-56-46-66" fill="none" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Left Leaves -->
+    <path d="M24 106c-8-4-12 2-14 8 6 2 12-2 14-8zM20 78c-9-1-11 7-10 13 6 0 10-6 10-13zM27 50c-8 3-7 11-4 16 6-2 8-9 4-16zM44 28c-6 6-3 13 1 17 5-4 5-12-1-17zM68 14c-4 7 0 13 5 16 4-6 2-13-5-16z" opacity="0.9"/>
+    
+    <!-- Right Leaves -->
+    <path d="M136 106c8-4 12 2 14 8-6 2-12-2-14-8zM140 78c9-1 11 7 10 13-6 0-10-6-10-13zM133 50c8 3 7 11 4 16-6-2-8-9-4-16zM116 28c6 6 3 13-1 17-5-4-5-12 1-17zM92 14c4 7 0 13-5 16-4-6-2-13 5-16z" opacity="0.9"/>
+    
+    <!-- Central Bottom Knot Berries -->
+    <circle cx="80" cy="146" r="4" fill="#B59765" stroke="none"/>
+    <circle cx="71" cy="147" r="2.5" fill="#E5C378" stroke="none"/>
+    <circle cx="89" cy="147" r="2.5" fill="#E5C378" stroke="none"/>
+  </g>
+
+  <!-- Monogram S & M with balanced optical kerning & centered baseline -->
+  <g font-family="EB Garamond" font-style="italic">
+    <text x="172" y="242" font-size="116" fill="#FAF7F2" text-anchor="middle">S</text>
+    <text x="247" y="236" font-size="88" fill="#E5C378" text-anchor="middle">&amp;</text>
+    <text x="336" y="242" font-size="116" fill="#FAF7F2" text-anchor="middle">M</text>
+  </g>
+
+  <!-- Divider ornament below wreath (wreath bottom is at y=338) -->
+  <g stroke="#D8AF79" fill="#E5C378" opacity="0.9">
+    <line x1="185" y1="372" x2="238" y2="372" stroke-width="1.2"/>
+    <polygon points="256,367 261,372 256,377 251,372" stroke="none"/>
+    <line x1="274" y1="372" x2="327" y2="372" stroke-width="1.2"/>
+  </g>
+
+  <!-- Date -->
+  <text x="256" y="410" font-family="EB Garamond" font-size="24" font-weight="400" fill="#FAF7F2" text-anchor="middle" letter-spacing="2.8">10 · 09 · 2027</text>
+
+  <!-- Location (clean, completely unobstructed, prestigious) -->
+  <text x="256" y="446" font-family="EB Garamond" font-size="16.5" font-weight="500" fill="#D8AF79" text-anchor="middle" letter-spacing="6">MONFERRATO</text>
+</svg>
