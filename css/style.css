@@ -1279,10 +1279,10 @@ section {
   justify-content: center;
   gap: 8px;
   padding: 10px 18px;
-  background: rgba(37, 211, 102, 0.08);
-  border: 1px solid rgba(37, 211, 102, 0.35);
+  background: rgba(86, 104, 76, 0.08);
+  border: 1px solid rgba(86, 104, 76, 0.28);
   border-radius: var(--radius-pill);
-  color: #1b8a43;
+  color: var(--accent-sage-dark);
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
@@ -1290,11 +1290,11 @@ section {
 }
 
 .whatsapp-share-btn:hover {
-  background: #25D366;
+  background: var(--accent-sage);
   color: #ffffff;
-  border-color: #25D366;
+  border-color: var(--accent-sage);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 4px 12px rgba(86, 104, 76, 0.22);
 }
 
 /* Pulsante fluttuante Torna Su */
@@ -2572,7 +2572,14 @@ legend.form-label {
   }
 
   .venue-tab-icon {
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+  }
+
+  .venue-tab-icon svg {
+    display: block;
   }
 
   .venues-grid.mobile-tabs-ready .venue-card {
@@ -2787,14 +2794,28 @@ legend.form-label {
   }
 
   .mobile-swipe-indicator .swipe-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--accent-terracotta);
-    font-size: 0.95rem;
-    font-weight: 700;
     animation: swipePulse 2s infinite ease-in-out;
   }
 
-  @keyframes swipePulse {
-    0%, 100% { opacity: 0.4; transform: translateX(0); }
+  .mobile-swipe-indicator .swipe-arrow--left {
+    animation-name: swipePulseLeft;
+  }
+
+  .mobile-swipe-indicator .swipe-arrow--right {
+    animation-name: swipePulseRight;
+  }
+
+  @keyframes swipePulseLeft {
+    0%, 100% { opacity: 0.45; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(-3px); }
+  }
+
+  @keyframes swipePulseRight {
+    0%, 100% { opacity: 0.45; transform: translateX(0); }
     50% { opacity: 1; transform: translateX(3px); }
   }
 
@@ -2948,6 +2969,17 @@ legend.form-label {
     background: var(--accent-terracotta);
     color: var(--text-inverse);
     box-shadow: 0 2px 8px rgba(140, 85, 53, 0.25);
+  }
+
+  .dresscode-tab-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+  }
+
+  .dresscode-tab-icon svg {
+    display: block;
   }
 
   .dresscode-tips-grid.mobile-tabs-ready .dresscode-tip-box {
