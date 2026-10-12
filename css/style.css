@@ -1490,6 +1490,175 @@ section {
 }
 
 /* ============================================================
+   SEZIONE ALLOGGI & PERNOTTAMENTO NELLE VICINANZE (#alloggi)
+   ============================================================ */
+.section-alloggi {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.alloggi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 36px;
+}
+
+.alloggio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.alloggio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(140, 85, 53, 0.3);
+}
+
+.alloggio-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.alloggio-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(140, 85, 53, 0.08);
+  color: var(--accent-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alloggio-badge-dist {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(86, 104, 76, 0.1);
+  color: var(--accent-sage-dark);
+  border: 1px solid rgba(86, 104, 76, 0.2);
+}
+
+.alloggio-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.alloggio-type {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  margin-bottom: 12px;
+}
+
+.alloggio-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.alloggio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alloggio-list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.45;
+}
+
+.alloggio-list li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: var(--accent-gold);
+  font-weight: bold;
+}
+
+.alloggio-list li strong {
+  color: var(--text-primary);
+}
+
+.alloggio-actions {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.alloggio-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.alloggio-link-btn:hover {
+  color: var(--accent-terracotta-hover);
+  transform: translateX(2px);
+}
+
+.alloggio-link-btn svg {
+  color: currentColor;
+}
+
+/* Nota Informativa Prenotazione */
+.alloggi-note-box {
+  margin-top: 36px;
+  background: rgba(216, 206, 190, 0.2);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 22px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.alloggi-note-icon {
+  color: var(--accent-terracotta);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alloggi-note-content h4 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.alloggi-note-content p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ============================================================
    DRESS CODE & MOODBOARD
    ============================================================ */
 .dresscode-card {
@@ -3036,6 +3205,22 @@ legend.form-label {
   .directions-grid.mobile-tabs-ready .direction-card.active {
     display: block;
     animation: venueFadeIn 0.3s ease forwards;
+  }
+
+  /* --- ALLOGGI MOBILE STYLES --- */
+  .alloggi-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .alloggio-card {
+    padding: 24px 20px;
+  }
+
+  .alloggi-note-box {
+    padding: 20px 18px;
+    margin-top: 24px;
   }
 }
 
