@@ -3,6 +3,7 @@
    ============================================================ */
 .section-rsvp {
   padding: 100px 24px 130px;
+  background: var(--bg-primary);
 }
 
 .rsvp-wrapper {

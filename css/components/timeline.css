@@ -2,7 +2,7 @@
    PROGRAMMA DELLA GIORNATA CON ICONE & FASI DI LUCE
    ============================================================ */
 .section-programma {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .timeline {

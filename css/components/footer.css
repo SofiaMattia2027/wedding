@@ -4,7 +4,7 @@
 .site-footer {
   text-align: center;
   padding: 85px 24px 65px;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
 }
 

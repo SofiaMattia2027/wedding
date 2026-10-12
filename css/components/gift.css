@@ -1,6 +1,10 @@
 /* ============================================================
    LISTA NOZZE & VIAGGIO DI NOZZE
    ============================================================ */
+.section-regalo {
+  background: var(--bg-secondary);
+}
+
 .gift-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-card);

@@ -3,7 +3,7 @@
    ============================================================ */
 .section-countdown {
   padding: 60px 24px 80px;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 .countdown-box {
