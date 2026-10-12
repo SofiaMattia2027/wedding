@@ -1,0 +1,252 @@
+/* ============================================================
+   HERO SECTION — EMOTIVA ED EDITORIALE
+   ============================================================ */
+.hero {
+  min-height: calc(100vh - 65px);
+  min-height: calc(100dvh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 90px 24px 110px;
+  background:
+    radial-gradient(ellipse at 50% 12%, rgba(184, 155, 106, 0.22) 0%, transparent 68%),
+    radial-gradient(circle at 12% 85%, rgba(86, 104, 76, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(140, 85, 53, 0.08) 0%, transparent 45%),
+    var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-autumn-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Monogram Crest Frame con levitazione delicata */
+.hero-monogram-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-gold);
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hero-monogram-badge::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px dashed var(--accent-gold);
+  opacity: 0.4;
+}
+
+.hero-monogram-badge span {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent-terracotta);
+}
+
+.hero-eyebrow {
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 6.4rem);
+  font-style: italic;
+  line-height: 1.05;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.hero h1 .hero-ampersand {
+  font-weight: 400;
+  color: var(--accent-terracotta);
+}
+
+.hero-full-names {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-style: italic;
+  color: var(--accent-terracotta);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+.hero-date-venue {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--text-primary);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-dot {
+  color: var(--accent-terracotta);
+  font-size: 0.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+/* Quick Event Pill Bar */
+.hero-quick-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 26px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  max-width: 780px;
+}
+
+.quick-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.quick-bar-item strong {
+  color: var(--text-primary);
+}
+
+.quick-bar-divider {
+  color: var(--border-subtle);
+  font-size: 0.8rem;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.btn--primary {
+  background: var(--accent-terracotta);
+  color: var(--text-inverse);
+  box-shadow: 0 8px 24px -6px rgba(140, 85, 53, 0.35);
+}
+
+.btn--primary:hover {
+  background: var(--accent-terracotta-hover);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(140, 85, 53, 0.45);
+}
+
+.btn--secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--secondary:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  animation: floatDown 2.2s ease-in-out infinite;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 6px); }
+}
+
+
+/* ============================================================
+   RESPONSIVE HERO (<=540px)
+   ============================================================ */
+@media (max-width: 540px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+}

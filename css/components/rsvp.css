@@ -1,0 +1,351 @@
+/* ============================================================
+   RSVP (FORM SERVERLESS & REATTIVO)
+   ============================================================ */
+.section-rsvp {
+  padding: 100px 24px 130px;
+}
+
+.rsvp-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rsvp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 50px 42px;
+  box-shadow: var(--shadow-lg);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group--spaced {
+  margin-top: 24px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1rem; /* 16px: previene l'auto-zoom forzato su iOS Safari */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-focus);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* RADIO PRESENZA CON SCHEDE INTERATTIVE */
+.attendance-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.attendance-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.attendance-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Focus da tastiera visibile sulla card che contiene il radio */
+.attendance-card:has(input:focus-visible) {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 3px;
+}
+
+/* Reset fieldset/legend del gruppo presenza */
+fieldset.form-group {
+  border: 0;
+  padding: 0;
+  margin-inline: 0;
+  min-width: 0;
+}
+
+legend.form-label {
+  padding: 0;
+}
+
+.attendance-card .card-title {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.attendance-card .card-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.attendance-card.active {
+  background: var(--accent-sage-subtle);
+  border-color: var(--accent-sage);
+}
+
+.attendance-card.active .card-title {
+  color: var(--accent-sage-dark);
+}
+
+.attendance-card.declined.active {
+  background: var(--accent-terracotta-subtle);
+  border-color: var(--accent-terracotta);
+}
+
+.attendance-card.declined.active .card-title {
+  color: var(--accent-terracotta);
+}
+
+/* CAMPI ACCOMPAGNATORI DINAMICI */
+.guests-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.guests-section.visible {
+  display: block;
+}
+
+.companions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.companion-field {
+  background: var(--bg-primary);
+  border: 1px dashed var(--border-card);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.companion-field label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* PILLS ESIGENZE ALIMENTARI */
+.dietary-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.diet-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.diet-pill:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 2px;
+}
+
+.diet-pill.selected {
+  background: var(--accent-terracotta);
+  border-color: var(--accent-terracotta);
+  color: var(--text-inverse);
+}
+
+/* SUBMIT BUTTON CON SPINNER */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.submit-btn.loading .spinner {
+  display: inline-block;
+}
+
+.submit-btn.loading .btn-text {
+  display: none;
+}
+
+/* MESSAGGIO CONFERMA / SUCCESSO */
+.rsvp-success-card {
+  display: none;
+  text-align: center;
+  padding: 32px 10px;
+  animation: fadeIn 0.4s ease;
+}
+
+.rsvp-success-card.visible {
+  display: block;
+}
+
+.success-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--accent-sage-subtle);
+  color: var(--accent-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.rsvp-success-card h3 {
+  font-size: 2.1rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.rsvp-success-card p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.rsvp-success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.rsvp-success-actions .btn {
+  font-size: 0.78rem;
+}
+
+.rsvp-success-actions .whatsapp-share-btn {
+  margin: 0;
+}
+
+/* CELEBRATION CONFETTI CANVAS */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* TOAST NOTIFICATION */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  padding: 14px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-smooth);
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+/* ============================================================
+   RESPONSIVE RSVP (<=540px)
+   ============================================================ */
+@media (max-width: 540px) {
+  .rsvp-card {
+    padding: 30px 16px;
+  }
+
+}

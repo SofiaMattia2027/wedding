@@ -1,0 +1,199 @@
+/* ============================================================
+   PROGRAMMA DELLA GIORNATA CON ICONE & FASI DI LUCE
+   ============================================================ */
+.section-programma {
+  background: var(--bg-secondary);
+}
+
+.timeline {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 95px;
+  width: 1px;
+  background: var(--border-subtle);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 38px;
+  margin-bottom: 38px;
+  align-items: start;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-time {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-terracotta);
+  text-align: right;
+  line-height: 1.2;
+}
+
+/* Icona a cerchio con SVG raffinato */
+.timeline-icon-bullet {
+  position: absolute;
+  left: 77px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(140, 85, 53, 0.15);
+  z-index: 2;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.timeline-item:hover .timeline-icon-bullet {
+  transform: scale(1.1);
+  background: var(--accent-terracotta-subtle);
+}
+
+.timeline-icon-bullet svg {
+  width: 17px;
+  height: 17px;
+}
+
+.timeline-body {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.timeline-body:hover {
+  transform: translateY(-2px);
+}
+
+.timeline-body-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeline-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-body h3 {
+  font-size: 1.38rem;
+  color: var(--text-primary);
+}
+
+.timeline-phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold);
+  background: var(--accent-gold-subtle);
+  border: 1px solid rgba(181, 151, 101, 0.25);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.timeline-location-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-sage);
+}
+
+.timeline-body p {
+  font-size: 0.94rem;
+  line-height: 1.68;
+}
+
+
+/* ============================================================
+   RESPONSIVE TIMELINE (<=768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- TIMELINE GIORNATA (PIÙ LEGGERA E COMPATTA SU MOBILE) --- */
+  .timeline::before {
+    left: 18px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-left: 48px;
+    margin-bottom: 24px;
+  }
+
+  .timeline-time {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .timeline-icon-bullet {
+    left: 1px;
+    top: 0;
+    width: 34px;
+    height: 34px;
+  }
+
+  .timeline-body {
+    padding: 16px 18px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 10px rgba(140, 85, 53, 0.05);
+  }
+
+  .timeline-body-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .timeline-phase-badge {
+    font-size: 0.65rem;
+  }
+
+  .timeline-location-tag {
+    font-size: 0.7rem;
+  }
+
+  .timeline-body p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+}

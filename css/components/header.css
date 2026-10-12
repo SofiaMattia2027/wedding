@@ -1,0 +1,173 @@
+/* ============================================================
+   STICKY NAVBAR — ANTI-OVERLAP E RISOLUZIONE COLLISIONI
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-brand span {
+  color: var(--accent-terracotta);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 22px);
+  list-style: none;
+  flex-shrink: 1;
+}
+
+.nav-link {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--accent-terracotta);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--accent-terracotta);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  background: var(--accent-terracotta);
+  color: var(--text-inverse);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-cta-btn:hover {
+  background: var(--accent-terracotta-hover);
+  color: var(--text-inverse);
+  transform: translateY(-1px);
+}
+
+/* Mobile Toggle Hamburger (minimo 44x44px touch target) */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  z-index: 600;
+  border-radius: var(--radius-sm);
+}
+
+.mobile-toggle svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  stroke: currentColor;
+}
+
+
+/* ============================================================
+   RESPONSIVE NAVBAR & DRAWER (<=1040px)
+   ============================================================ */
+@media (max-width: 1040px) {
+  .site-header .nav-menu {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    flex-direction: column;
+    padding: 30px 24px 38px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+    max-height: calc(100vh - 62px);
+    max-height: calc(100dvh - 62px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-header .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 6px 0;
+  }
+
+  .nav-cta-btn {
+    width: 200px;
+    padding: 12px;
+  }
+
+}

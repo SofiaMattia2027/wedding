@@ -1,0 +1,126 @@
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  text-align: center;
+  padding: 85px 24px 65px;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-monogram {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--accent-terracotta);
+  margin-bottom: 12px;
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.footer-credits {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+
+/* ============================================================
+   RESPONSIVE FOOTER, STICKY BAR & BACK-TO-TOP (<=768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- BARRA RAPIDA INFERIORE FLUTTUANTE (STICKY RSVP BAR) --- */
+  .mobile-sticky-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 800;
+    padding: 10px 18px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    background: rgba(250, 247, 242, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-subtle);
+    box-shadow: 0 -4px 20px rgba(60, 40, 30, 0.08);
+    transform: translateY(115%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  }
+
+  .mobile-sticky-bar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-sticky-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+
+  .mobile-sticky-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mobile-sticky-date {
+    font-family: var(--font-serif);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--accent-terracotta);
+    line-height: 1.1;
+  }
+
+  .mobile-sticky-loc {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .mobile-sticky-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-terracotta);
+    color: var(--text-inverse);
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(140, 85, 53, 0.3);
+    transition: transform var(--transition-fast), background var(--transition-fast);
+  }
+
+  .mobile-sticky-btn:active {
+    transform: scale(0.96);
+    background: #754426;
+  }
+
+  /* --- PULSANTE TORNA SU (MOBILE) --- */
+  .back-to-top-btn {
+    bottom: 74px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+  }
+
+}

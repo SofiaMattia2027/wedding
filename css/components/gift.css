@@ -1,0 +1,172 @@
+/* ============================================================
+   LISTA NOZZE & VIAGGIO DI NOZZE
+   ============================================================ */
+.gift-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 56px 44px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.gift-card p.intro-text {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cartoline di viaggio illustrate */
+.honeymoon-postcards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 36px;
+  text-align: left;
+}
+
+.honeymoon-postcard {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 26px 20px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.honeymoon-postcard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.postcard-stamp {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 42px;
+  border: 1px dashed var(--accent-gold);
+  background: #FFFDF9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: 2px;
+}
+
+.postcard-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-sage);
+  margin-bottom: 6px;
+}
+
+.honeymoon-postcard h4 {
+  font-size: 1.35rem;
+  color: var(--accent-terracotta);
+  margin-bottom: 8px;
+}
+
+.honeymoon-postcard p {
+  font-size: 0.88rem;
+  line-height: 1.62;
+  color: var(--text-secondary);
+}
+
+.iban-container {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+  text-align: left;
+  margin-bottom: 10px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.iban-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.iban-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-terracotta);
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-btn:hover {
+  background: var(--accent-terracotta);
+  color: var(--text-inverse);
+  border-color: var(--accent-terracotta);
+}
+
+.iban-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(1rem, 2.7vw, 1.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  word-break: break-all;
+  margin-bottom: 14px;
+}
+
+.iban-meta {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   RESPONSIVE LISTA NOZZE
+   ============================================================ */
+@media (max-width: 1040px) {
+  .honeymoon-postcards-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 540px) {
+  .gift-card {
+    padding: 32px 16px;
+  }
+
+  .iban-container {
+    padding: 20px 16px;
+  }
+
+}

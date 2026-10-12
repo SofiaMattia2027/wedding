@@ -1,0 +1,226 @@
+/* SEPARATORI BOTANICI & FLOREALI IN FILIGRANA */
+.botanical-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 52px auto;
+  max-width: 380px;
+  color: var(--accent-terracotta);
+  opacity: 0.9;
+}
+
+.botanical-divider::before,
+.botanical-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--border-subtle) 25%, var(--border-subtle) 75%, transparent);
+}
+
+.botanical-divider svg {
+  width: 82px;
+  height: 28px;
+  display: block;
+}
+
+/* ============================================================
+   ELEMENTI FLOREALI D'AUTORE (ROMANTIC BOTANICAL ACCENTS)
+   ============================================================ */
+.hero-floral-wreath {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  animation: gentleFloralFloat 5s ease-in-out infinite;
+}
+
+@keyframes gentleFloralFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(1.2deg); }
+}
+
+.floral-wreath-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent-gold);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 10px rgba(181, 151, 101, 0.22));
+}
+
+.hero-floral-wreath .wreath-monogram {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--accent-terracotta);
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+/* Motivo floreale sopra le intestazioni di sezione */
+.floral-head-motif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: var(--accent-gold);
+  opacity: 0.85;
+}
+
+.floral-head-motif svg {
+  width: 38px;
+  height: 16px;
+  display: block;
+}
+
+/* Angoli floreali decorativi in filigrana per card di pregio */
+.has-floral-corners {
+  position: relative;
+  overflow: hidden;
+}
+
+.floral-corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  color: var(--accent-gold);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.story-intro-card:hover .floral-corner,
+.gift-card:hover .floral-corner,
+.dresscode-card:hover .floral-corner,
+.countdown-box:hover .floral-corner,
+.rsvp-card:hover .floral-corner {
+  opacity: 0.68;
+}
+
+.floral-corner--tr {
+  top: 10px;
+  right: 10px;
+}
+
+.floral-corner--bl {
+  bottom: 10px;
+  left: 10px;
+}
+
+.floral-corner--tl {
+  top: 10px;
+  left: 10px;
+}
+
+.floral-corner--br {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Wreath floreale per footer */
+.footer-floral-wreath {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-floral-wreath .floral-wreath-svg {
+  width: 100%;
+  height: 100%;
+  color: var(--accent-terracotta);
+  opacity: 0.75;
+}
+
+.footer-floral-wreath .footer-monogram-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.55rem;
+  color: var(--accent-terracotta);
+  z-index: 2;
+}
+
+
+/* ============================================================
+   INDICI DI SCORRIMENTO TOUCH (<=768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- INDICI DI SCORRIMENTO TOUCH --- */
+  .mobile-swipe-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-sage);
+    opacity: 0.9;
+  }
+
+  .mobile-swipe-indicator .swipe-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-terracotta);
+    animation: swipePulse 2s infinite ease-in-out;
+  }
+
+  .mobile-swipe-indicator .swipe-arrow--left {
+    animation-name: swipePulseLeft;
+  }
+
+  .mobile-swipe-indicator .swipe-arrow--right {
+    animation-name: swipePulseRight;
+  }
+
+  @keyframes swipePulseLeft {
+    0%, 100% { opacity: 0.45; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(-3px); }
+  }
+
+  @keyframes swipePulseRight {
+    0%, 100% { opacity: 0.45; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(3px); }
+  }
+
+  .gift-card {
+    padding: 34px 18px;
+  }
+
+  .rsvp-card {
+    padding: 34px 18px;
+  }
+
+  .attendance-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .dresscode-tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-quick-bar {
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .quick-bar-divider {
+    display: none;
+  }
+
+}

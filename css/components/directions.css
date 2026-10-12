@@ -1,0 +1,150 @@
+/* ============================================================
+   INDICAZIONI AUTO & LOGISTICA REALE
+   ============================================================ */
+.section-logistica {
+  background: var(--bg-secondary);
+}
+
+.directions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.direction-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.direction-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.direction-card h3 span.badge {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-sage-subtle);
+  color: var(--accent-sage);
+}
+
+.direction-card p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.direction-card p:last-child {
+  margin-bottom: 0;
+}
+
+.info-cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-pill-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.info-pill-card .eyebrow {
+  margin-bottom: 8px;
+}
+
+.info-pill-card p {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   RESPONSIVE INDICAZIONI & LOGISTICA
+   ============================================================ */
+@media (max-width: 1040px) {
+  .directions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .route-step.right,
+  .route-step {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  /* --- LOGISTICA MOBILE TABS --- */
+  .directions-mobile-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    margin: 0 auto 20px;
+    max-width: 310px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .directions-tab-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .directions-tab-btn.active {
+    background: var(--accent-terracotta);
+    color: var(--text-inverse);
+    box-shadow: 0 2px 8px rgba(140, 85, 53, 0.25);
+  }
+
+  .directions-grid.mobile-tabs-ready .direction-card {
+    display: none;
+  }
+
+  .directions-grid.mobile-tabs-ready .direction-card.active {
+    display: block;
+    animation: venueFadeIn 0.3s ease forwards;
+  }
+
+}

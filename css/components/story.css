@@ -1,0 +1,175 @@
+/* ============================================================
+   LA NOSTRA STORIA (EDITORIAL STORYTELLING)
+   ============================================================ */
+.story-wrapper {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.story-intro-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.story-intro-card p {
+  font-size: 1.12rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.story-intro-card p em {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.story-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.story-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 36px;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 34px 38px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.story-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.story-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border-subtle);
+  padding-right: 28px;
+}
+
+.story-year {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-style: italic;
+  color: var(--accent-terracotta);
+  line-height: 1;
+}
+
+.story-season {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-sage);
+  margin-top: 4px;
+}
+
+.story-content h3 {
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.story-content p {
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+
+/* ============================================================
+   RESPONSIVE STORIA (<=768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- STORIA D'AMORE (LAYOUT EDITORIALE NARRATIVO SU MOBILE) --- */
+  .story-grid {
+    position: relative;
+    padding-left: 26px;
+    gap: 28px;
+  }
+
+  .story-grid::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-terracotta), var(--accent-sage), var(--accent-gold));
+    opacity: 0.45;
+    border-radius: 2px;
+  }
+
+  .story-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .story-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .story-card::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-terracotta);
+    box-shadow: 0 0 0 4px var(--bg-primary);
+  }
+
+  .story-date-badge {
+    border: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .story-year {
+    font-size: 1.85rem;
+  }
+
+  .story-season {
+    font-size: 0.72rem;
+    background: var(--accent-sage-subtle);
+    color: var(--accent-sage);
+    padding: 2px 10px;
+    border-radius: var(--radius-pill);
+    margin-top: 0;
+  }
+
+  .story-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+
+  .story-content p {
+    font-size: 0.94rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+  }
+
+}
