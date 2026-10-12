@@ -67,7 +67,7 @@ window.CONFIG = {
    =====================================================================
    1. Crea un nuovo foglio su https://sheets.new
    2. Nella riga 1 inserisci le intestazioni di colonna:
-      Data Invio | Nome Ospite | Presenza | N. Persone | Accompagnatori | Esigenze Alimentari | Canzone Richiesta | Messaggio
+      Data Invio | Nome Ospite | Presenza | N. Persone | Accompagnatori | Esigenze Alimentari | Messaggio
    3. Nel menu in alto: Estensioni → Apps Script
    4. Cancella il codice preesistente e incolla questo:
 
@@ -81,7 +81,6 @@ window.CONFIG = {
        data.guestCount || 1,
        Array.isArray(data.companions) ? data.companions.join(', ') : '',
        data.dietary || 'Nessuna',
-       data.song || '',
        data.message || ''
      ]);
      return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))

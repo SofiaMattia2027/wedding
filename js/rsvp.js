@@ -202,9 +202,6 @@ window.initRSVP = function(config) {
       selectedDiets.push(dietaryNotes.value.trim());
     }
 
-    const songInput = document.getElementById('songRequest');
-    const songName = songInput ? songInput.value.trim() : '';
-
     const messageText = document.getElementById('rsvpMessage');
     const guestMessage = messageText ? messageText.value.trim() : '';
 
@@ -214,7 +211,6 @@ window.initRSVP = function(config) {
       guestCount: totalGuests,
       companions: companions,
       dietary: selectedDiets.join('; ') || 'Nessuna',
-      song: songName,
       message: guestMessage,
       submittedAt: new Date().toISOString()
     };
@@ -252,7 +248,6 @@ window.initRSVP = function(config) {
             ospiti_totali: payload.guestCount,
             accompagnatori: payload.companions.join(', ') || 'Nessuno',
             esigenze_alimentari: payload.dietary,
-            canzone_richiesta: payload.song || 'Nessuna',
             messaggio: payload.message || 'Nessun messaggio'
           })
         }).then(async res => {
