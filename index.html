@@ -320,9 +320,21 @@
           <p class="subtitle">La cerimonia solenne nella pieve millenaria e la festa nella storica dimora panoramica.</p>
         </div>
 
-        <div class="venues-grid reveal-stagger">
+        <!-- TABS MOBILE LOCATION (Visibili esclusivamente sotto 768px, display:none su desktop) -->
+        <div class="venue-mobile-tabs" role="tablist" aria-label="Seleziona location">
+          <button type="button" class="venue-tab-btn active" role="tab" id="tabVenueCerimonia" aria-selected="true" aria-controls="venueCerimonia" data-venue-target="cerimonia">
+            <span class="venue-tab-icon">⛪</span>
+            <span class="venue-tab-text">La Cerimonia</span>
+          </button>
+          <button type="button" class="venue-tab-btn" role="tab" id="tabVenueRicevimento" aria-selected="false" aria-controls="venueRicevimento" data-venue-target="ricevimento">
+            <span class="venue-tab-icon">🏰</span>
+            <span class="venue-tab-text">Il Ricevimento</span>
+          </button>
+        </div>
+
+        <div class="venues-grid reveal-stagger" id="venuesGrid">
           <!-- CERIMONIA -->
-          <article class="venue-card">
+          <article class="venue-card active" id="venueCerimonia" data-venue="cerimonia">
             <div class="venue-media">
               <img src="./images/ChiesaSanSecondo.png" alt="Pieve di San Secondo a Cortazzone" width="649" height="541" loading="lazy">
               <span class="venue-badge">La Cerimonia</span>
@@ -344,11 +356,15 @@
                   Indicazioni Google Maps
                 </a>
               </div>
+              <button type="button" class="venue-switch-link" data-switch-to="ricevimento">
+                <span>Scopri Il Ricevimento</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
             </div>
           </article>
 
           <!-- RICEVIMENTO -->
-          <article class="venue-card">
+          <article class="venue-card" id="venueRicevimento" data-venue="ricevimento">
             <div class="venue-media">
               <img src="./images/TorreDiBatibo.png" alt="Torre di Batibò a Piovà Massaia" width="799" height="391" loading="lazy">
               <span class="venue-badge">Il Ricevimento</span>
@@ -370,6 +386,10 @@
                   Indicazioni Google Maps
                 </a>
               </div>
+              <button type="button" class="venue-switch-link" data-switch-to="cerimonia">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Torna alla Cerimonia</span>
+              </button>
             </div>
           </article>
         </div>
@@ -557,6 +577,12 @@
             <h3>Dolci &amp; Cocktail Bar</h3>
             <p>Torta nuziale monumentale, specialità alla nocciola tonda gentile di Langa, baci di dama artigianali, carrello dei digestivi piemontesi e open bar con cocktail per scatenarsi in pista.</p>
           </div>
+        </div>
+
+        <div class="mobile-swipe-indicator" aria-hidden="true">
+          <span class="swipe-arrow">←</span>
+          <span>Scorri per scoprire il menù</span>
+          <span class="swipe-arrow">→</span>
         </div>
       </div>
     </section>
@@ -813,6 +839,12 @@
             </div>
             <div class="polaroid-caption">Luci &amp; festa serale</div>
           </div>
+        </div>
+
+        <div class="mobile-swipe-indicator" aria-hidden="true">
+          <span class="swipe-arrow">←</span>
+          <span>Scorri per sfogliare le foto</span>
+          <span class="swipe-arrow">→</span>
         </div>
 
         <!-- Box informativo: anteprima condivisione post-matrimonio -->

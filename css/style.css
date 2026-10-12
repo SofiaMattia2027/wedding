@@ -1257,6 +1257,13 @@ section {
   transform: translateY(-1px);
 }
 
+/* Elementi dinamici specifici per dispositivi touch/mobile (nascosti di default su desktop) */
+.venue-mobile-tabs,
+.venue-switch-link,
+.mobile-swipe-indicator {
+  display: none;
+}
+
 /* ============================================================
    SCHEDA ITINERARIO E COLLEGAMENTO TRA CHIESA E LOCATION
    ============================================================ */
@@ -2367,7 +2374,11 @@ legend.form-label {
 
 @media (max-width: 768px) {
   section {
-    padding: 75px 20px;
+    padding: 54px 18px;
+  }
+
+  .section-head {
+    margin-bottom: 28px;
   }
 
   .countdown-grid {
@@ -2375,56 +2386,356 @@ legend.form-label {
     gap: 12px;
   }
 
+  /* --- STORIA D'AMORE (LAYOUT EDITORIALE NARRATIVO SU MOBILE) --- */
+  .story-grid {
+    position: relative;
+    padding-left: 26px;
+    gap: 28px;
+  }
+
+  .story-grid::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-terracotta), var(--accent-sage), var(--accent-gold));
+    opacity: 0.45;
+    border-radius: 2px;
+  }
+
   .story-card {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 26px 22px;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .story-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .story-card::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-terracotta);
+    box-shadow: 0 0 0 4px var(--bg-primary);
   }
 
   .story-date-badge {
-    border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-right: 0;
-    padding-bottom: 14px;
+    border: none;
+    padding: 0;
     flex-direction: row;
-    gap: 12px;
+    align-items: baseline;
+    gap: 10px;
   }
 
+  .story-year {
+    font-size: 1.85rem;
+  }
+
+  .story-season {
+    font-size: 0.72rem;
+    background: var(--accent-sage-subtle);
+    color: var(--accent-sage);
+    padding: 2px 10px;
+    border-radius: var(--radius-pill);
+    margin-top: 0;
+  }
+
+  .story-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+
+  .story-content p {
+    font-size: 0.94rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+  }
+
+  /* --- LOCATION TABS & SWITCHER PER MOBILE --- */
+  .venue-mobile-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    margin: 0 auto 24px;
+    max-width: 340px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .venue-tab-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .venue-tab-btn.active {
+    background: var(--accent-terracotta);
+    color: var(--text-inverse);
+    box-shadow: 0 2px 8px rgba(140, 85, 53, 0.25);
+  }
+
+  .venue-tab-icon {
+    font-size: 1rem;
+  }
+
+  .venues-grid.mobile-tabs-ready .venue-card {
+    display: none;
+  }
+
+  .venues-grid.mobile-tabs-ready .venue-card.active {
+    display: flex;
+    animation: venueFadeIn 0.35s ease forwards;
+  }
+
+  .venue-media {
+    height: 215px;
+  }
+
+  .venue-content {
+    padding: 24px 20px;
+  }
+
+  .venue-content h3 {
+    font-size: 1.55rem;
+  }
+
+  .route-card {
+    padding: 24px 20px;
+    margin-bottom: 24px;
+  }
+
+  @keyframes venueFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .venue-switch-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 11px 18px;
+    border: 1px dashed var(--accent-terracotta);
+    background: rgba(140, 85, 53, 0.05);
+    border-radius: var(--radius-pill);
+    color: var(--accent-terracotta);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+  }
+
+  .venue-switch-link:active {
+    background: var(--accent-terracotta);
+    color: var(--text-inverse);
+  }
+
+  .info-cards-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px auto 26px;
+  }
+
+  .info-pill-card {
+    padding: 16px 18px;
+    text-align: left;
+  }
+
+  .info-pill-card .eyebrow {
+    margin-bottom: 4px;
+    font-size: 0.68rem;
+  }
+
+  .info-pill-card p {
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  /* --- TIMELINE GIORNATA (PIÙ LEGGERA E COMPATTA SU MOBILE) --- */
   .timeline::before {
-    left: 20px;
+    left: 18px;
   }
 
   .timeline-item {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding-left: 52px;
+    gap: 10px;
+    padding-left: 48px;
+    margin-bottom: 24px;
   }
 
   .timeline-time {
     text-align: left;
+    font-size: 1.25rem;
   }
 
   .timeline-icon-bullet {
-    left: 2px;
+    left: 1px;
     top: 0;
+    width: 34px;
+    height: 34px;
   }
 
+  .timeline-body {
+    padding: 16px 18px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 10px rgba(140, 85, 53, 0.05);
+  }
+
+  .timeline-body-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .timeline-phase-badge {
+    font-size: 0.65rem;
+  }
+
+  .timeline-location-tag {
+    font-size: 0.7rem;
+  }
+
+  .timeline-body p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  /* --- BANQUET / SAPORI CAROSELLO HORIZONTAL TOUCH PEEK --- */
+  .banquet-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 8px 4px 18px;
+    scrollbar-width: none;
+  }
+
+  .banquet-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .banquet-card {
+    flex: 0 0 84vw;
+    max-width: 320px;
+    scroll-snap-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* --- GALLERIA POLAROID TOUCH FILMSTRIP CON INCLINAZIONI VINTAGE --- */
   .polaroid-gallery {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 10px 0;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 18px;
+    padding: 24px 8px 30px;
+    scrollbar-width: none;
+  }
+
+  .polaroid-gallery::-webkit-scrollbar {
+    display: none;
   }
 
   .polaroid-card {
-    transform: none !important;
+    flex: 0 0 76vw;
+    max-width: 285px;
+    scroll-snap-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .polaroid-card:nth-child(1) { transform: rotate(-1.6deg) !important; }
+  .polaroid-card:nth-child(2) { transform: rotate(1.4deg) !important; }
+  .polaroid-card:nth-child(3) { transform: rotate(-1.2deg) !important; }
+  .polaroid-card:nth-child(4) { transform: rotate(1.5deg) !important; }
+  .polaroid-card:nth-child(5) { transform: rotate(-1.4deg) !important; }
+
+  .polaroid-card:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .polaroid-card:nth-child(4) .polaroid-img-wrap {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* --- INDICI DI SCORRIMENTO TOUCH --- */
+  .mobile-swipe-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-sage);
+    opacity: 0.9;
+  }
+
+  .mobile-swipe-indicator .swipe-arrow {
+    color: var(--accent-terracotta);
+    font-size: 0.95rem;
+    font-weight: 700;
+    animation: swipePulse 2s infinite ease-in-out;
+  }
+
+  @keyframes swipePulse {
+    0%, 100% { opacity: 0.4; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(3px); }
   }
 
   .gift-card {
-    padding: 36px 20px;
+    padding: 34px 18px;
   }
 
   .rsvp-card {
-    padding: 36px 20px;
+    padding: 34px 18px;
   }
 
   .attendance-selector {

@@ -379,6 +379,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 3b. Selettore Location Mobile a Tab & Link Rapido
+  const venuesGrid = document.getElementById('venuesGrid');
+  const venueTabBtns = document.querySelectorAll('.venue-tab-btn');
+  const venueSwitchLinks = document.querySelectorAll('.venue-switch-link');
+
+  if (venuesGrid && venueTabBtns.length > 0) {
+    venuesGrid.classList.add('mobile-tabs-ready');
+
+    function setActiveVenue(targetVenue) {
+      venueTabBtns.forEach(btn => {
+        const isMatch = btn.getAttribute('data-venue-target') === targetVenue;
+        btn.classList.toggle('active', isMatch);
+        btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      const cards = venuesGrid.querySelectorAll('.venue-card');
+      cards.forEach(card => {
+        const isMatch = card.getAttribute('data-venue') === targetVenue;
+        card.classList.toggle('active', isMatch);
+        if (isMatch) {
+          card.classList.add('is-visible');
+        }
+      });
+    }
+
+    venueTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetVenue = btn.getAttribute('data-venue-target');
+        if (targetVenue) setActiveVenue(targetVenue);
+      });
+    });
+
+    venueSwitchLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const targetVenue = link.getAttribute('data-switch-to');
+        if (targetVenue) {
+          setActiveVenue(targetVenue);
+          const locationSection = document.getElementById('location');
+          if (locationSection) {
+            locationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  }
+
   // 4. Copia IBAN negli appunti con feedback visivo e toast
   const copyIbanBtn = document.getElementById('copyIbanBtn');
   const ibanTextEl = document.getElementById('ibanCodeText');
