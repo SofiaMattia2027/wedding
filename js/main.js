@@ -596,4 +596,57 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 9. Barra Rapida Inferiore Mobile (Sticky RSVP Bar) a scomparsa intelligente
+  const mobileStickyBar = document.getElementById('mobileStickyBar');
+  const rsvpSection = document.getElementById('rsvp');
+
+  if (mobileStickyBar) {
+    let ticking = false;
+
+    function updateStickyBar() {
+      // Attiva esclusivamente su schermi mobile <= 768px
+      if (window.innerWidth > 768) {
+        mobileStickyBar.classList.remove('visible');
+        ticking = false;
+        return;
+      }
+
+      // Nascondi se il menu di navigazione mobile è aperto
+      if (navMenu && navMenu.classList.contains('open')) {
+        mobileStickyBar.classList.remove('visible');
+        ticking = false;
+        return;
+      }
+
+      const scrollY = window.scrollY || window.pageYOffset;
+      const rsvpRect = rsvpSection ? rsvpSection.getBoundingClientRect() : null;
+      
+      // Consideriamo l'utente dentro la sezione RSVP se essa è visibile nel viewport
+      const isInsideRsvp = rsvpRect && rsvpRect.top < window.innerHeight - 60 && rsvpRect.bottom > 80;
+
+      // Mostra dopo aver superato la hero (scrollY > 420) e quando NON siamo nella sezione RSVP
+      if (scrollY > 420 && !isInsideRsvp) {
+        mobileStickyBar.classList.add('visible');
+      } else {
+        mobileStickyBar.classList.remove('visible');
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateStickyBar);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateStickyBar);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 });

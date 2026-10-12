@@ -19,8 +19,13 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Favicon SVG Monogram -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%238C5535'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='42' font-style='italic' fill='%23FAF7F2'>S&amp;M</text></svg>">
+  <!-- Favicon & Web App Manifest (PWA) / Apple Touch Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Sofia &amp; Mattia">
 
   <!-- Typography: Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1081,6 +1086,20 @@
     <p class="footer-quote">Non vediamo l'ora di festeggiare con ciascuno di voi.</p>
     <p class="footer-credits">Sofia Saracco &amp; Mattia Passuello · 10 Settembre 2027 · Cortazzone &amp; Piovà Massaia (AT)</p>
   </footer>
+
+  <!-- ===================== BARRA RAPIDA INFERIORE MOBILE ===================== -->
+  <aside class="mobile-sticky-bar" id="mobileStickyBar" aria-label="Azione rapida conferma presenza">
+    <div class="mobile-sticky-inner">
+      <div class="mobile-sticky-info">
+        <span class="mobile-sticky-date">10 Settembre 2027</span>
+        <span class="mobile-sticky-loc">Cortazzone &amp; Batibò</span>
+      </div>
+      <a href="#rsvp" class="mobile-sticky-btn" id="mobileStickyRsvpBtn">
+        <span>Conferma Presenza</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </div>
+  </aside>
 
   <!-- Lightbox Modal Polaroid -->
   <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Ingrandimento immagine">
