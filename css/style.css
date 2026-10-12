@@ -1500,63 +1500,93 @@ section {
 .alloggi-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
-  margin-top: 36px;
+  gap: 28px;
+  margin-top: 38px;
 }
 
 .alloggio-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 30px 28px;
+  padding: 32px 30px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  position: relative;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .alloggio-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(140, 85, 53, 0.3);
+  border-color: rgba(140, 85, 53, 0.35);
 }
 
-.alloggio-card-header {
+/* Card in evidenza (Piovà Massaia - la più vicina alla festa) */
+.alloggio-card--featured {
+  border-color: rgba(184, 151, 88, 0.45);
+  box-shadow: 0 4px 18px rgba(140, 85, 53, 0.07);
+}
+
+.alloggio-card--featured::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-terracotta), var(--accent-gold));
+  border-radius: 3px 3px 0 0;
+}
+
+.alloggio-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
 }
 
-.alloggio-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: rgba(140, 85, 53, 0.08);
+.alloggio-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--accent-terracotta);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(140, 85, 53, 0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-block;
 }
 
-.alloggio-badge-dist {
+.alloggio-tag--featured {
+  color: #7d5416;
+  background: rgba(184, 151, 88, 0.15);
+  border: 1px solid rgba(184, 151, 88, 0.3);
+}
+
+.alloggio-dist {
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 4px 12px;
+  letter-spacing: 0.03em;
+  padding: 4px 11px;
   border-radius: var(--radius-pill);
-  background: rgba(86, 104, 76, 0.1);
+  background: rgba(86, 104, 76, 0.09);
   color: var(--accent-sage-dark);
   border: 1px solid rgba(86, 104, 76, 0.2);
+  white-space: nowrap;
 }
 
-.alloggio-card h3 {
-  font-size: 1.35rem;
+.alloggio-title {
+  font-size: 1.38rem;
+  font-weight: 700;
   margin-bottom: 4px;
   color: var(--text-primary);
+  line-height: 1.25;
 }
 
-.alloggio-type {
+.alloggio-subtitle {
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1566,88 +1596,138 @@ section {
 }
 
 .alloggio-desc {
-  font-size: 0.92rem;
+  font-size: 0.91rem;
   line-height: 1.6;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.alloggio-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
+/* Lista micro-schede strutture */
+.alloggio-places {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
+  margin-bottom: 22px;
 }
 
-.alloggio-list li {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  position: relative;
-  padding-left: 16px;
-  line-height: 1.45;
+.alloggio-place-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(216, 206, 190, 0.18);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
-.alloggio-list li::before {
-  content: "•";
-  position: absolute;
-  left: 2px;
-  color: var(--accent-gold);
-  font-weight: bold;
+.alloggio-place-item:hover {
+  background: rgba(216, 206, 190, 0.35);
+  border-color: rgba(140, 85, 53, 0.25);
 }
 
-.alloggio-list li strong {
+.alloggio-place-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.alloggio-place-name {
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--text-primary);
+  line-height: 1.35;
 }
 
-.alloggio-actions {
+.alloggio-place-detail {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.alloggio-place-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.alloggio-place-link:hover {
+  background: var(--accent-terracotta);
+  color: #ffffff;
+  border-color: var(--accent-terracotta);
+}
+
+.alloggio-place-link svg {
+  color: currentColor;
+}
+
+.alloggio-card-footer {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.alloggio-link-btn {
+.alloggio-explore-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--accent-terracotta);
   text-decoration: none;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.alloggio-link-btn:hover {
+.alloggio-explore-btn:hover {
   color: var(--accent-terracotta-hover);
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
-.alloggio-link-btn svg {
+.alloggio-explore-btn svg {
   color: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.alloggio-explore-btn:hover svg {
+  transform: translateX(2px);
 }
 
 /* Nota Informativa Prenotazione */
 .alloggi-note-box {
   margin-top: 36px;
-  background: rgba(216, 206, 190, 0.2);
+  background: rgba(216, 206, 190, 0.22);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 22px 28px;
+  padding: 24px 28px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 18px;
 }
 
 .alloggi-note-icon {
   color: var(--accent-terracotta);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .alloggi-note-content h4 {
   font-size: 1.05rem;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   color: var(--text-primary);
 }
 
@@ -1655,7 +1735,36 @@ section {
   font-size: 0.88rem;
   line-height: 1.55;
   color: var(--text-secondary);
-  margin: 0;
+  margin: 0 0 12px;
+}
+
+.alloggi-note-action {
+  margin-top: 4px;
+}
+
+.alloggi-note-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  background: rgba(140, 85, 53, 0.08);
+  border: 1px solid rgba(140, 85, 53, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.alloggi-note-wa-btn:hover {
+  background: var(--accent-terracotta);
+  color: #ffffff;
+  border-color: var(--accent-terracotta);
+}
+
+.alloggi-note-wa-btn svg {
+  color: currentColor;
 }
 
 /* ============================================================
@@ -3210,17 +3319,33 @@ legend.form-label {
   /* --- ALLOGGI MOBILE STYLES --- */
   .alloggi-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
     margin-top: 24px;
   }
 
   .alloggio-card {
-    padding: 24px 20px;
+    padding: 26px 20px;
+  }
+
+  .alloggio-card--featured::before {
+    left: 20px;
+    right: 20px;
+  }
+
+  .alloggio-place-item {
+    padding: 10px 12px;
   }
 
   .alloggi-note-box {
-    padding: 20px 18px;
+    padding: 22px 18px;
     margin-top: 24px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .alloggi-note-wa-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
