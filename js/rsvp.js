@@ -22,8 +22,15 @@ window.initRSVP = function(config) {
 
   if (!rsvpForm) return;
 
+  function triggerHaptic(duration = 14) {
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try { navigator.vibrate(duration); } catch (_) {}
+    }
+  }
+
   // 1. Gestione Schede Presenza (Sì / No)
   function handleAttendingChange(val) {
+    triggerHaptic();
     if (val === 'yes') {
       cardYes.classList.add('active');
       cardNo.classList.remove('active');
@@ -100,6 +107,7 @@ window.initRSVP = function(config) {
   dietPills.forEach(pill => {
     pill.addEventListener('click', (e) => {
       e.preventDefault();
+      triggerHaptic(10);
       if (pill === nonePill) {
         resetDietPills();
         return;

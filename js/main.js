@@ -425,6 +425,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 3c. Selettore Dress Code Mobile a Tab (Lei / Lui)
+  const dressGrid = document.getElementById('dresscodeTipsGrid');
+  const dressBtns = document.querySelectorAll('.dresscode-tab-btn');
+  if (dressGrid && dressBtns.length > 0) {
+    dressGrid.classList.add('mobile-tabs-ready');
+    dressBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-gender-target');
+        dressBtns.forEach(b => {
+          const match = b.getAttribute('data-gender-target') === target;
+          b.classList.toggle('active', match);
+          b.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+        dressGrid.querySelectorAll('.dresscode-tip-box').forEach(box => {
+          box.classList.toggle('active', box.getAttribute('data-gender') === target);
+        });
+      });
+    });
+  }
+
+  // 3d. Selettore Logistica Mobile a Tab (Da Torino / Da Milano & Asti)
+  const dirGrid = document.getElementById('directionsGrid');
+  const dirBtns = document.querySelectorAll('.directions-tab-btn');
+  if (dirGrid && dirBtns.length > 0) {
+    dirGrid.classList.add('mobile-tabs-ready');
+    dirBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-route-target');
+        dirBtns.forEach(b => {
+          const match = b.getAttribute('data-route-target') === target;
+          b.classList.toggle('active', match);
+          b.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+        dirGrid.querySelectorAll('.direction-card').forEach(card => {
+          card.classList.toggle('active', card.getAttribute('data-route') === target);
+        });
+      });
+    });
+  }
+
   // 4. Copia IBAN negli appunti con feedback visivo e toast
   const copyIbanBtn = document.getElementById('copyIbanBtn');
   const ibanTextEl = document.getElementById('ibanCodeText');
@@ -648,5 +688,29 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = true;
       }
     }, { passive: true });
+  }
+
+  // 10. Pulsante Fluttuante Torna Su (Back to Top)
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    let topTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!topTicking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY > 550) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+          topTicking = false;
+        });
+        topTicking = true;
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 });

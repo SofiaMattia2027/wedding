@@ -657,12 +657,22 @@
             </div>
           </div>
 
-          <div class="dresscode-tips-grid">
-            <div class="dresscode-tip-box">
+          <!-- TOGGLE MOBILE DRESS CODE (Nascosto su desktop) -->
+          <div class="dresscode-mobile-tabs" role="tablist" aria-label="Seleziona consigli dress code">
+            <button type="button" class="dresscode-tab-btn active" role="tab" id="tabDressLei" aria-selected="true" data-gender-target="lei">
+              <span>👗 Per le Invitate</span>
+            </button>
+            <button type="button" class="dresscode-tab-btn" role="tab" id="tabDressLui" aria-selected="false" data-gender-target="lui">
+              <span>👔 Per gli Invitati</span>
+            </button>
+          </div>
+
+          <div class="dresscode-tips-grid" id="dresscodeTipsGrid">
+            <div class="dresscode-tip-box active" id="tipLei" data-gender="lei">
               <h4>Per le invitate</h4>
               <p>Abiti lunghi o midi, completi sartoriali o stampe floreali delicate. <em>Nota sulle calzature:</em> sia alla pieve che nei giardini della Torre cammineremo sull'erba; vi consigliamo tacchi larghi, zeppe o scarpe comode.</p>
             </div>
-            <div class="dresscode-tip-box">
+            <div class="dresscode-tip-box" id="tipLui" data-gender="lui">
               <h4>Per gli invitati</h4>
               <p>Abito classico o spezzato elegante, cravatta facoltativa. Tessuti leggeri come lino, misto seta o lana fresca. Giacca consigliata per la cerimonia in chiesa e per le ore serali all'aperto.</p>
             </div>
@@ -686,9 +696,19 @@
           <p class="subtitle">Indicazioni pratiche per raggiungere agevolmente Cortazzone e la Torre di Batibò in automobile.</p>
         </div>
 
-        <div class="directions-grid reveal-stagger">
+        <!-- TOGGLE MOBILE LOGISTICA (Nascosto su desktop) -->
+        <div class="directions-mobile-tabs" role="tablist" aria-label="Seleziona provenienza">
+          <button type="button" class="directions-tab-btn active" role="tab" id="tabDirTorino" aria-selected="true" data-route-target="torino">
+            <span>Da Torino · 45m</span>
+          </button>
+          <button type="button" class="directions-tab-btn" role="tab" id="tabDirMilano" aria-selected="false" data-route-target="milano">
+            <span>Da Milano / Asti</span>
+          </button>
+        </div>
+
+        <div class="directions-grid reveal-stagger" id="directionsGrid">
           <!-- DA TORINO -->
-          <div class="direction-card">
+          <div class="direction-card active" id="dirTorino" data-route="torino">
             <h3>
               <span>Da Torino &amp; Cintura</span>
               <span class="badge">Circa 45–50 min</span>
@@ -698,7 +718,7 @@
           </div>
 
           <!-- DA MILANO / ASTI / ALESSANDRIA -->
-          <div class="direction-card">
+          <div class="direction-card" id="dirMilano" data-route="milano">
             <h3>
               <span>Da Milano, Asti &amp; Alessandria</span>
               <span class="badge">Circa 20 min da Asti</span>
@@ -998,7 +1018,7 @@
               <!-- Nome e Cognome -->
               <div class="form-group">
                 <label for="fullName" class="form-label">Nome e Cognome *</label>
-                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Es. Laura Rossi" required>
+                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Es. Laura Rossi" autocomplete="name" autocapitalize="words" spellcheck="false" required>
               </div>
 
               <!-- Campi condizionali se PRESENTE -->
@@ -1043,6 +1063,14 @@
                 <span class="btn-text">Invia Conferma RSVP</span>
                 <span class="spinner" aria-hidden="true"></span>
               </button>
+
+              <!-- Condivisione Rapida WhatsApp -->
+              <div class="whatsapp-share-wrap">
+                <a href="https://api.whatsapp.com/send?text=Ciao!%20Ecco%20il%20link%20ufficiale%20del%20matrimonio%20di%20Sofia%20%26%20Mattia%20(10%20Settembre%202027)%20con%20programma%2C%20mappe%20e%20conferma%20presenza%3A%20https%3A%2F%2Fsofiamattia2027.github.io%2Fwedding%2F" target="_blank" rel="noopener noreferrer" class="whatsapp-share-btn" aria-label="Inoltra dettagli del matrimonio su WhatsApp">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  <span>Inoltra link invito al partner su WhatsApp</span>
+                </a>
+              </div>
             </form>
           </div>
 
@@ -1053,9 +1081,15 @@
             </div>
             <h3>Grazie <span id="successGuestName"></span>!</h3>
             <p id="successSummary">La tua risposta è stata registrata con successo.</p>
-            <button type="button" class="btn btn--secondary" id="resetRsvpBtn" style="font-size: 0.78rem;">
-              Modifica la risposta
-            </button>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+              <button type="button" class="btn btn--secondary" id="resetRsvpBtn" style="font-size: 0.78rem;">
+                Modifica risposta
+              </button>
+              <a href="https://api.whatsapp.com/send?text=Ho%20confermato%20la%20presenza%20per%20il%20matrimonio%20di%20Sofia%20%26%20Mattia%20(10%20Settembre%202027)!%20Ecco%20il%20link%20ufficiale%3A%20https%3A%2F%2Fsofiamattia2027.github.io%2Fwedding%2F" target="_blank" rel="noopener noreferrer" class="whatsapp-share-btn" style="margin: 0;" aria-label="Condividi conferma su WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>Condividi su WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1094,6 +1128,13 @@
       </a>
     </div>
   </aside>
+
+  <!-- Pulsante Fluttuante Torna Su -->
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Torna in cima alla pagina">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <!-- Lightbox Modal Polaroid -->
   <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Ingrandimento immagine">
