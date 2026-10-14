@@ -71,6 +71,18 @@
       }
     });
 
+    // Swipe verticale per chiudere su dispositivi touch
+    let touchStartY = null;
+    galleryLightbox.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    galleryLightbox.addEventListener('touchend', (e) => {
+      if (touchStartY === null) return;
+      const deltaY = e.changedTouches[0].clientY - touchStartY;
+      touchStartY = null;
+      if (Math.abs(deltaY) > 70) closeLightbox();
+    }, { passive: true });
+
     document.addEventListener('keydown', (e) => {
       if (!galleryLightbox.classList.contains('active')) return;
       if (e.key === 'Escape') {

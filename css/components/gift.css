@@ -139,11 +139,13 @@
 
 .iban-code {
   font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(1rem, 2.7vw, 1.25rem);
+  font-size: clamp(0.88rem, 4.2vw, 1.25rem);
   font-weight: 600;
   color: var(--text-primary);
-  letter-spacing: 0.08em;
-  word-break: break-all;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+  word-spacing: 0.15em;
+  user-select: all;
   margin-bottom: 14px;
 }
 

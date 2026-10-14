@@ -168,6 +168,7 @@
 .lightbox-img-wrap {
   max-width: 900px;
   max-height: 80vh;
+  max-height: 80dvh;
   position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;

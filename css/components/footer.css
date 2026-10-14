@@ -115,12 +115,49 @@
     background: #754426;
   }
 
-  /* --- PULSANTE TORNA SU (MOBILE) --- */
+  /* --- PULSANTE TORNA SU (MOBILE, tap target 44px sopra la sticky bar) --- */
   .back-to-top-btn {
-    bottom: 74px;
+    bottom: calc(82px + env(safe-area-inset-bottom));
     right: 16px;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Il footer non deve restare coperto dalla barra RSVP fissa */
+  .site-footer {
+    padding-bottom: calc(141px + env(safe-area-inset-bottom));
+  }
+
+  /* Il toast non deve sovrapporsi alla sticky bar */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: calc(84px + env(safe-area-inset-bottom));
+    align-items: center;
+  }
+
+  .mobile-sticky-btn {
+    min-height: 44px;
+  }
+
+  .diet-pill {
+    padding: 10px 16px;
+    min-height: 40px;
+  }
+
+  .faq-summary {
+    min-height: 48px;
+  }
+
+  /* L'indicatore di scroll si sovrappone al contenuto dell'hero su schermi piccoli */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Evita hover "appiccicati" dopo il tocco */
+  .cd-unit:hover,
+  .honeymoon-postcard:hover {
+    transform: none;
   }
 
 }
