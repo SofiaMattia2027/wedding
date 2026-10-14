@@ -84,7 +84,7 @@
   background: var(--bg-primary);
   cursor: pointer;
   text-align: center;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .attendance-card input[type="radio"] {
@@ -166,7 +166,7 @@ legend.form-label {
 }
 
 .companion-field label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -194,7 +194,7 @@ legend.form-label {
   border-radius: var(--radius-pill);
   cursor: pointer;
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .diet-pill:focus-visible {
@@ -349,4 +349,15 @@ legend.form-label {
     padding: 30px 16px;
   }
 
+}
+
+/* Regole mobile (<=768px) */
+@media (max-width: 768px) {
+  .rsvp-card {
+    padding: 34px 18px;
+  }
+
+  .attendance-selector {
+    grid-template-columns: 1fr;
+  }
 }

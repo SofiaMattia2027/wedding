@@ -111,11 +111,11 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-gold);
+  color: var(--accent-gold-text);
   background: var(--accent-gold-subtle);
   border: 1px solid rgba(181, 151, 101, 0.25);
   padding: 3px 10px;
@@ -123,7 +123,7 @@
 }
 
 .timeline-location-tag {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -179,12 +179,18 @@
     margin-bottom: 8px;
   }
 
+  .timeline-title-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
   .timeline-body h3 {
     font-size: 1.15rem;
   }
 
   .timeline-phase-badge {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   .timeline-location-tag {

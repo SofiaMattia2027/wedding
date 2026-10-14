@@ -53,7 +53,7 @@
 }
 
 .swatch-name {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -120,7 +120,7 @@
     font-weight: 600;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
   }
 
   .dresscode-tab-btn.active {
@@ -138,6 +138,11 @@
 
   .dresscode-tab-icon svg {
     display: block;
+  }
+
+  .dresscode-tips-grid,
+  .dresscode-tips-grid.mobile-tabs-ready {
+    grid-template-columns: 1fr;
   }
 
   .dresscode-tips-grid.mobile-tabs-ready .dresscode-tip-box {

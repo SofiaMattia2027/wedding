@@ -153,6 +153,7 @@
 
 /* ============================================================
    INDICI DI SCORRIMENTO TOUCH (<=768px)
+   (le regole mobile dei componenti sono nei rispettivi file)
    ============================================================ */
 @media (max-width: 768px) {
   /* --- INDICI DI SCORRIMENTO TOUCH --- */
@@ -162,7 +163,7 @@
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -194,33 +195,6 @@
   @keyframes swipePulseRight {
     0%, 100% { opacity: 0.45; transform: translateX(0); }
     50% { opacity: 1; transform: translateX(3px); }
-  }
-
-  .gift-card {
-    padding: 34px 18px;
-  }
-
-  .rsvp-card {
-    padding: 34px 18px;
-  }
-
-  .attendance-selector {
-    grid-template-columns: 1fr;
-  }
-
-  .dresscode-tips-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-quick-bar {
-    border-radius: var(--radius-md);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 20px;
-  }
-
-  .quick-bar-divider {
-    display: none;
   }
 
 }

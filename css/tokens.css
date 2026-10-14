@@ -15,7 +15,7 @@
 
   --text-primary: #2C2420;        /* Espresso profondo per titoli e body (WCAG AAA) */
   --text-secondary: #584D46;      /* Taupe / marrone caldo morbido */
-  --text-muted: #7E736B;          /* Testo attenuato e micro-copy */
+  --text-muted: #6B6159;          /* Testo attenuato e micro-copy */
   --text-inverse: #FFFFFF;
 
   --accent-terracotta: #8C5535;   /* Accento caldo terracotta */
@@ -28,6 +28,7 @@
 
   --accent-gold: #B59765;         /* Oro satinato caldo */
   --accent-gold-subtle: #FAF5EB;
+  --accent-gold-text: #7F6434;     /* Oro scurito per testo (contrasto AA) */
 
   /* Palette Floreale & Botanica */
   --floral-rose: #C88E82;         /* Rosa cipria floreale */
@@ -54,6 +55,21 @@
   /* Tipografia */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Scala tipografica (minimo leggibile: 0.75rem) */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.88rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.15rem;
+
+  /* Scala spaziature */
+  --space-section: 110px;
+  --space-section-mobile: 54px;
+  --space-gutter: 24px;
+  --space-gutter-mobile: 18px;
+
+  /* Breakpoint di riferimento (le media query non accettano var()):
+     540px = phone piccolo · 768px = mobile/tablet · 1040px = laptop */
 
   /* Transizioni */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);

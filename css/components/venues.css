@@ -67,7 +67,7 @@
   border: 1px dashed var(--accent-gold);
   border-radius: var(--radius-sm);
   background: var(--accent-gold-subtle);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -134,7 +134,7 @@
   border: 1px solid var(--accent-terracotta);
   color: var(--accent-terracotta);
   background: transparent;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .map-action-btn:hover {
@@ -172,7 +172,7 @@
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .whatsapp-share-btn:hover {
@@ -243,7 +243,7 @@
 }
 
 .route-step-tag {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -271,7 +271,7 @@
 }
 
 .route-connector-meta {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 6px;
   font-style: italic;
@@ -292,7 +292,7 @@
 }
 
 .route-pill {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -354,7 +354,7 @@
     letter-spacing: 0.04em;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
   }
 
   .venue-tab-btn.active {
@@ -426,7 +426,7 @@
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
     width: 100%;
   }
 
@@ -452,7 +452,7 @@
 
   .info-pill-card .eyebrow {
     margin-bottom: 4px;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
 
   .info-pill-card p {

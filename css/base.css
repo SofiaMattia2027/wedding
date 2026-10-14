@@ -82,7 +82,7 @@ summary:focus-visible,
 .eyebrow {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.24em;
@@ -95,13 +95,13 @@ summary:focus-visible,
 }
 
 .eyebrow--gold {
-  color: var(--accent-gold);
+  color: var(--accent-gold-text);
 }
 
 /* SECTION STRUCTURE */
 section {
   position: relative;
-  padding: 110px 24px;
+  padding: var(--space-section) var(--space-gutter);
 }
 
 .container {
@@ -147,7 +147,7 @@ section {
    ============================================================ */
 @media (max-width: 768px) {
   section {
-    padding: 54px 18px;
+    padding: var(--space-section-mobile) var(--space-gutter-mobile);
   }
 
   .section-head {

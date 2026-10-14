@@ -184,7 +184,7 @@
   border-radius: var(--radius-pill);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .btn--primary {
@@ -222,7 +222,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -249,4 +249,18 @@
     width: 100%;
   }
 
+}
+
+/* Regole mobile (<=768px) */
+@media (max-width: 768px) {
+  .hero-quick-bar {
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .quick-bar-divider {
+    display: none;
+  }
 }
